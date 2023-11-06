@@ -123,9 +123,10 @@ app.post('/gerar-pdf', (req, res) => {
 doc.fontSize(14).font('Helvetica').text('Neste diapasão, a ficha de fiscalização divulgada pelo Conselho Nacional de Trânsito informa mais de 15 modalidades diferentes de possivelmente infringir a o art. 230, inciso IX do Código de Trânsito Brasileiro, além disso a respectiva ficha de fiscalização cita exemplos para se constar no campo observações:', { align: 'left' });
 doc.moveDown();
 
-doc.image('./imagens-doc/foto1.png', { //caminho da imagem
-  fit: [500, 500],  // ajuste de tamanho da imagem
-  align: 'center',  // alinhamento da imagem
+const imgPath = path.join(__dirname, 'imagens-doc', 'foto1.png');
+doc.image(imgPath, {
+  fit: [500, 500],
+  align: 'center',
 });
 doc.moveDown();
 
@@ -202,33 +203,7 @@ doc.moveDown();
 doc.fontSize(14).font('Helvetica').text('- Documento do veículo', { align: 'left' });
 doc.moveDown(); 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
+ 
 //--------------------------------------------------------------------------------------------
 /*
   doc.fontSize(12).text('Pergunta: Qual é o seu nome completo?');
@@ -276,4 +251,3 @@ doc.moveDown();
 app.listen(3000, () => {
   console.log('\x1b[34m%s\x1b[0m', 'Mestre Israel Wilson seu servidor foi iniciado na porta 3000');
 });
-
